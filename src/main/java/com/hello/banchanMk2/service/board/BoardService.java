@@ -1,6 +1,6 @@
-package com.hello.board.service.board;
+package com.hello.banchanMk2.service.board;
 
-import com.hello.board.domain.board.Board;
+import com.hello.banchanMk2.domain.board.Board;
 
 import java.util.List;
 

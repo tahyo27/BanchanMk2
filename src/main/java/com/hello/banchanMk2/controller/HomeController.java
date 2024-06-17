@@ -1,4 +1,4 @@
-package com.hello.board.controller;
+package com.hello.banchanMk2.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

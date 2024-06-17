@@ -1,4 +1,4 @@
-package com.hello.board;
+package com.hello.banchanMk2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

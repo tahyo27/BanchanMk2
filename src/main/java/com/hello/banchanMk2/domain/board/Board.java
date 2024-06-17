@@ -1,9 +1,8 @@
-package com.hello.board.domain.board;
+package com.hello.banchanMk2.domain.board;
 
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Data
 public class Board {

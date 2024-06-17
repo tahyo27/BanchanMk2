@@ -1,7 +1,7 @@
-package com.hello.board.controller.board;
+package com.hello.banchanMk2.controller.board;
 
-import com.hello.board.domain.board.Board;
-import com.hello.board.service.board.BoardService;
+import com.hello.banchanMk2.domain.board.Board;
+import com.hello.banchanMk2.service.board.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

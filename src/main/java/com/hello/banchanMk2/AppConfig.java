@@ -1,9 +1,9 @@
-package com.hello.board;
+package com.hello.banchanMk2;
 
-import com.hello.board.repository.board.BoardRepository;
-import com.hello.board.repository.board.JdbcTemplateBoardRepository;
-import com.hello.board.service.board.BoardService;
-import com.hello.board.service.board.BoardServiceImpl;
+import com.hello.banchanMk2.repository.board.BoardRepository;
+import com.hello.banchanMk2.repository.board.JdbcTemplateBoardRepository;
+import com.hello.banchanMk2.service.board.BoardService;
+import com.hello.banchanMk2.service.board.BoardServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
