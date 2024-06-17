@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Board List</title>
+</head>
+<body>
+<h1>Board List</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Board Number</th>
+    <th>Writer</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Reg. Date</th>
+    <th>View Count</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="board : ${boards}">
+    <td th:text="${board.boardNum}"></td>
+    <td th:text="${board.writer}"></td>
+    <td th:text="${board.title}"></td>
+    <td th:text="${board.content}"></td>
+    <td th:text="${#dates.format(board.regDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    <td th:text="${board.viewCount}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

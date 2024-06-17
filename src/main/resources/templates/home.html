@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div>
+    <h1 th:text="'Hello, ' + ${name} + '!'">Hello</h1>
+    <p>
+        <a href="/boards/form">board 등록</a>
+        <a href="/boards/list">board 목록</a>
+    </p>
+</div>
+</body>
+</html>
