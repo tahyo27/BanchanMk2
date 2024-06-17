@@ -10,6 +10,8 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 
 public class JdbcTemplateBoardRepository implements BoardRepository{
 
@@ -41,6 +43,12 @@ public class JdbcTemplateBoardRepository implements BoardRepository{
     @Override
     public List<Board> findAll() {
         return jdbcTemplate.query("select * from board", boardRowMapper());
+    }
+
+    @Override
+    public Optional<Board> findByBoardNum(int num) {
+        List<Board> result = jdbcTemplate.query("select * from board where boardNum = ?",new Object[] {num}, boardRowMapper());
+        return  result.stream().findAny();
     }
 
     private RowMapper<Board> boardRowMapper() {

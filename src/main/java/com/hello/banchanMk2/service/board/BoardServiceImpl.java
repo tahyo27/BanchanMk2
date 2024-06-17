@@ -4,6 +4,7 @@ import com.hello.banchanMk2.domain.board.Board;
 import com.hello.banchanMk2.repository.board.BoardRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BoardServiceImpl implements BoardService{
 
@@ -21,5 +22,10 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public List<Board> findBoards() {
         return boardRepository.findAll();
+    }
+
+    @Override
+    public Optional<Board> findOne(int boardNum) {
+        return boardRepository.findByBoardNum(boardNum);
     }
 }

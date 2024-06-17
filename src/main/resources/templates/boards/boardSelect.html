@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Board</title>
+</head>
+<body>
+<h1>Select Board</h1>
+<div th:if="${board != null}">
+    <div th:text="${board.boardNum}"></div>
+    <div th:text="${board.writer}"></div>
+    <div th:text="${board.title}"></div>
+    <div th:text="${board.content}"></div>
+    <div th:text="${#dates.format(board.regDate, 'yyyy-MM-dd HH:mm:ss')}"></div>
+    <div th:text="${board.viewCount}"></div>
+</div>
+
+<div th:if="${errorMessage != null}" class="error">
+    <div th:text="${errorMessage}"></div>
+</div>
+
+</body>
+</html>

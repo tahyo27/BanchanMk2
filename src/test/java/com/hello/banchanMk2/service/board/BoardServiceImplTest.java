@@ -1,23 +1,23 @@
-package com.hello.banchanMk2.service;
+package com.hello.banchanMk2.service.board;
 
+import com.hello.banchanMk2.BanchanMk2Application;
 import com.hello.banchanMk2.domain.board.Board;
-import com.hello.banchanMk2.repository.board.BoardRepository;
-import com.hello.banchanMk2.service.board.BoardService;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.sql.Timestamp;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-class BoardServiceIntegrationTest {
-
+@ContextConfiguration(classes = BanchanMk2Application.class)
+class BoardServiceImplTest {
     @Autowired
     BoardService boardService;
-    @Autowired
-    BoardRepository boardRepository;
 
     @Test
     void 등록() throws Exception {
@@ -38,4 +38,21 @@ class BoardServiceIntegrationTest {
         assertEquals("Test Content", savedBoard.getContent());
         assertEquals(0, savedBoard.getViewCount());
     }
+
+    @Test
+    void 보드선택() throws Exception {
+        //given
+        Optional<Board> boardOptional;
+        //when
+        boardOptional = boardService.findOne(2);
+
+        //then
+        if (boardOptional.isPresent()) {
+            Assertions.assertThat(boardOptional.get().getWriter()).isEqualTo("김");
+        } else {
+            System.out.println("null임");
+        }
+
+    }
+
 }
