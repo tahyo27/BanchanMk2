@@ -1,8 +1,7 @@
-package com.hello.board.service;
+package com.hello.board.service.board;
 
-import com.hello.board.domain.Board;
-import com.hello.board.repository.BoardRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hello.board.domain.board.Board;
+import com.hello.board.repository.board.BoardRepository;
 
 import java.util.List;
 

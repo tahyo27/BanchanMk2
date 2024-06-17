@@ -1,9 +1,9 @@
 package com.hello.board;
 
-import com.hello.board.repository.BoardRepository;
-import com.hello.board.repository.JdbcTemplateBoardRepository;
-import com.hello.board.service.BoardService;
-import com.hello.board.service.BoardServiceImpl;
+import com.hello.board.repository.board.BoardRepository;
+import com.hello.board.repository.board.JdbcTemplateBoardRepository;
+import com.hello.board.service.board.BoardService;
+import com.hello.board.service.board.BoardServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,13 +1,13 @@
 package com.hello.board.service;
 
-import com.hello.board.domain.Board;
-import com.hello.board.repository.BoardRepository;
+import com.hello.board.domain.board.Board;
+import com.hello.board.repository.board.BoardRepository;
+import com.hello.board.service.board.BoardService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

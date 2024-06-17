@@ -1,6 +1,6 @@
-package com.hello.board.repository;
+package com.hello.board.repository.board;
 
-import com.hello.board.domain.Board;
+import com.hello.board.domain.board.Board;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

@@ -1,8 +1,7 @@
-package com.hello.board.controller;
+package com.hello.board.controller.board;
 
-import com.hello.board.domain.Board;
-import com.hello.board.service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hello.board.domain.board.Board;
+import com.hello.board.service.board.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -20,7 +18,6 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @Autowired
     public BoardController(BoardService boardService) {
         this.boardService = boardService;
     }

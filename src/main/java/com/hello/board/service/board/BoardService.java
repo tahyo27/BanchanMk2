@@ -1,6 +1,6 @@
-package com.hello.board.service;
+package com.hello.board.service.board;
 
-import com.hello.board.domain.Board;
+import com.hello.board.domain.board.Board;
 
 import java.util.List;
 
