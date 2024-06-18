@@ -2,7 +2,10 @@ package com.hello.banchanMk2.controller.board;
 
 import com.hello.banchanMk2.domain.board.Board;
 import com.hello.banchanMk2.service.board.BoardService;
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +56,17 @@ public class BoardController {
     public String save(@ModelAttribute Board board) {
         boardService.join(board);
         return "redirect:/boards/list"; // 목록 페이지로 리다이렉트
+    }
+
+    @GetMapping("/delete/{num}")
+    public String delete(@PathVariable("num") int num) {
+        log.info("list num call : " + num);
+        try {
+            boardService.deleteBoardByNum(num);
+        } catch (EntityNotFoundException e) {
+           log.info(e.toString());
+        }
+
+        return "redirect:/";
     }
 }

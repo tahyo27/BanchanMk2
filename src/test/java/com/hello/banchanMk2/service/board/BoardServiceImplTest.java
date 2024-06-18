@@ -2,20 +2,28 @@ package com.hello.banchanMk2.service.board;
 
 import com.hello.banchanMk2.BanchanMk2Application;
 import com.hello.banchanMk2.domain.board.Board;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Transactional
 @ContextConfiguration(classes = BanchanMk2Application.class)
 class BoardServiceImplTest {
+    @Autowired
+    EntityManager em;
     @Autowired
     BoardService boardService;
 
@@ -26,7 +34,7 @@ class BoardServiceImplTest {
         board.setWriter("John Doe");
         board.setTitle("Test Title");
         board.setContent("Test Content");
-        board.setRegDate(new Timestamp(System.currentTimeMillis()));
+        board.setRegDate(LocalDateTime.now());
         board.setViewCount(0);
 
         // when
@@ -55,4 +63,31 @@ class BoardServiceImplTest {
 
     }
 
-}
+    @Test
+    public void 삭제() {
+        //given
+        Board board = new Board();
+        em.persist(board);
+
+        //when
+        boardService.deleteBoardByNum(board.getBoardNum());
+
+        //then
+        Board deleteBoard = em.find(Board.class, board.getBoardNum());
+        assertNull(deleteBoard, "널");
+    }
+
+    @Test
+    public void 삭제예외() {
+        //given
+        int bdNum = 999;
+        String message = "";
+        //when
+        Throwable exception = assertThrows(EntityNotFoundException.class, ()->{
+           boardService.deleteBoardByNum(bdNum);
+        });
+        //then "Board with num : " + num + " not found"
+        Assertions.assertThat(exception.getMessage()).isEqualTo("Board with num : " + bdNum + " not found");
+    }
+
+} //class

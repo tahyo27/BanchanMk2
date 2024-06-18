@@ -10,4 +10,6 @@ public interface BoardRepository {
     List<Board> findAll();
     Optional<Board> findByBoardNum(Integer num);
 
+    void deleteBoard(Integer num);
+
 }

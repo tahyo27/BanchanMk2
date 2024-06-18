@@ -28,4 +28,9 @@ public class BoardServiceImpl implements BoardService{
     public Optional<Board> findOne(Integer boardNum) {
         return boardRepository.findByBoardNum(boardNum);
     }
+
+    @Override
+    public void deleteBoardByNum(Integer boardNum) {
+        boardRepository.deleteBoard(boardNum);
+    }
 }

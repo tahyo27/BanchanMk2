@@ -51,6 +51,11 @@ public class JdbcTemplateBoardRepository implements BoardRepository{
         return  result.stream().findAny();
     }
 
+    @Override
+    public void deleteBoard(Integer num) {
+
+    }
+
     private RowMapper<Board> boardRowMapper() {
         return (rs, rowNum) -> {
             Board board = new Board();

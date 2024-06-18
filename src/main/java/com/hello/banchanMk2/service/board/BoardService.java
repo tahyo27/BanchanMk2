@@ -10,4 +10,6 @@ public interface BoardService {
     Board join(Board board);
     List<Board> findBoards();
     Optional<Board> findOne(Integer boardNum);
+
+    void deleteBoardByNum(Integer boardNum);
 }
