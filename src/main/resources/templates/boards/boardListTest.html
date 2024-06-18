@@ -36,6 +36,29 @@
         <div class="count" th:text="${board.viewCount}"></div>
       </div>
     </div>
+    <div class="board_page">
+      <!-- 이전 페이지 링크 -->
+      <a th:if="${paging.startPage != 1}"
+         th:href="@{/boards/test(pageNum=${paging.startPage - 1})}" class="bt prev">&lt;</a>
+      <!-- 페이지 번호 순환 -->
+      <div class="page-numbers">
+        <div th:each="p : ${#numbers.sequence(paging.startPage, paging.endPage)}">
+          <a th:href="@{/boards/test(pageNum=${p})}" class="page-link">
+            <span th:text="${p}"></span>
+          </a>
+        </div>
+      </div>
+      <!-- 다음 페이지 링크 -->
+      <a th:if="${paging.endPage != paging.lastPage}"
+         th:href="@{/boards/test(pageNum=${paging.endPage + 1})}"
+         class="bt next">&gt;</a>
+    </div>
+
+    <div class="bt_wrap">
+      <a th:href="@{/bd_insert.do}" class="on">글쓰기</a>
+      <!-- 수정 버튼은 필요에 따라 추가 -->
+      <!-- <a href="#">수정</a> -->
+    </div>
 
   </div>
 </div>

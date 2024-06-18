@@ -90,4 +90,6 @@ class BoardServiceImplTest {
         Assertions.assertThat(exception.getMessage()).isEqualTo("Board with num : " + bdNum + " not found");
     }
 
+
+
 } //class

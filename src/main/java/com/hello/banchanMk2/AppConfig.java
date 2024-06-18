@@ -1,7 +1,6 @@
 package com.hello.banchanMk2;
 
 import com.hello.banchanMk2.repository.board.BoardRepository;
-import com.hello.banchanMk2.repository.board.JdbcTemplateBoardRepository;
 import com.hello.banchanMk2.repository.board.JpaBoardRepository;
 import com.hello.banchanMk2.service.board.BoardService;
 import com.hello.banchanMk2.service.board.BoardServiceImpl;

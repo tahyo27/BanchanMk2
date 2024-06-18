@@ -1,6 +1,7 @@
-package com.hello.banchanMk2.repository.board;
+/*package com.hello.banchanMk2.repository.board;
 
 import com.hello.banchanMk2.domain.board.Board;
+import com.hello.banchanMk2.repository.board.BoardRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -13,7 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 
-public class JdbcTemplateBoardRepository implements BoardRepository{
+public class JdbcTemplateBoardRepository implements BoardRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -73,3 +74,4 @@ public class JdbcTemplateBoardRepository implements BoardRepository{
 
 
 }//class
+*/
