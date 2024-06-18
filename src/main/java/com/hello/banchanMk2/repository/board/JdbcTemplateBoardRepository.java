@@ -46,7 +46,7 @@ public class JdbcTemplateBoardRepository implements BoardRepository{
     }
 
     @Override
-    public Optional<Board> findByBoardNum(int num) {
+    public Optional<Board> findByBoardNum(Integer num) {
         List<Board> result = jdbcTemplate.query("select * from board where boardNum = ?",new Object[] {num}, boardRowMapper());
         return  result.stream().findAny();
     }
@@ -59,7 +59,7 @@ public class JdbcTemplateBoardRepository implements BoardRepository{
             board.setWriter(rs.getString("writer"));
             board.setTitle(rs.getString("title"));
             board.setContent(rs.getString("content"));
-            board.setRegDate(rs.getTimestamp("regDate"));
+            board.setRegDate(rs.getTimestamp("regDate").toLocalDateTime());
             board.setViewCount(rs.getInt("viewCount"));
 
             return board;

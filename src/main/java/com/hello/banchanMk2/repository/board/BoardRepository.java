@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface BoardRepository {
     Board save(Board board);
     List<Board> findAll();
-    Optional<Board> findByBoardNum(int num);
+    Optional<Board> findByBoardNum(Integer num);
 
 }

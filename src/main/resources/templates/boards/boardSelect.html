@@ -11,7 +11,7 @@
     <div th:text="${board.writer}"></div>
     <div th:text="${board.title}"></div>
     <div th:text="${board.content}"></div>
-    <div th:text="${#dates.format(board.regDate, 'yyyy-MM-dd HH:mm:ss')}"></div>
+    <div th:text="${board.regDate != null ? #temporals.format(board.regDate, 'yyyy-MM-dd HH:mm:ss') : ''}"></div>
     <div th:text="${board.viewCount}"></div>
 </div>
 

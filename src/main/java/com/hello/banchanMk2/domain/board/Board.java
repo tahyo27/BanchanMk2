@@ -1,17 +1,35 @@
 package com.hello.banchanMk2.domain.board;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Timestamp;
+
+import java.time.LocalDateTime;
 
 @Data
+@Entity
+@Table(name = "BOARD")
 public class Board {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer boardNum;
 
-    private int boardNum;
     private String writer;
+
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String content;
-    private Timestamp regDate;
+
+    @Column(name = "REGDATE")
+    private LocalDateTime regDate;
+
+    @Column(name = "VIEWCOUNT")
     private int viewCount;
+
+    @PrePersist
+    public void prePersist() {
+        this.regDate = LocalDateTime.now();
+    }
 
 }

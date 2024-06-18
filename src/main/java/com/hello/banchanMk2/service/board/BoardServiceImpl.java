@@ -25,7 +25,7 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public Optional<Board> findOne(int boardNum) {
+    public Optional<Board> findOne(Integer boardNum) {
         return boardRepository.findByBoardNum(boardNum);
     }
 }

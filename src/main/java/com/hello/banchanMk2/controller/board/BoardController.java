@@ -25,6 +25,7 @@ public class BoardController {
     @GetMapping("/list")
     public String list(Model model) {
         List<Board> boards = boardService.findBoards();
+        log.info(boards.toString());
         model.addAttribute("boards", boards);
         log.info("list call");
         return "/boards/boardList"; // View의 이름인 boardList.html을 반환
@@ -50,8 +51,6 @@ public class BoardController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute Board board) {
-        board.setRegDate(new Timestamp(System.currentTimeMillis())); // 현재 시간을 등록 날짜로 설정
-        board.setViewCount(0); // 처음 등록할 때 조회수 0으로 설정
         boardService.join(board);
         return "redirect:/boards/list"; // 목록 페이지로 리다이렉트
     }

@@ -9,5 +9,5 @@ public interface BoardService {
 
     Board join(Board board);
     List<Board> findBoards();
-    Optional<Board> findOne(int boardNum);
+    Optional<Board> findOne(Integer boardNum);
 }
