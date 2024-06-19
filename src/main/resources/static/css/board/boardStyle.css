@@ -165,18 +165,51 @@ a {
 
 }
 
-/* 페이지 번호를 가로로 나열 */
-.page-numbers {
-    display: inline-block; /* 가로로 나열되도록 설정 */
+.board_page {
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+    font-size: 1.5rem;
 }
 
-/* 각 페이지 링크 사이의 간격 설정 */
-.page-numbers > div {
-    display: inline-block; /* 가로로 나열되도록 설정 */
-    margin-right: 5px; /* 링크 사이 간격 조정 */
+.page_numbers {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    margin: -5px;
 }
 
-/* 숫자를 검은색으로 설정 */
-.page-number {
+.page_numbers a {
+    flex: 1;
+    margin: 5px;
     color: black;
+    transition: color 0.3s ease;
+}
+.page_numbers a:hover {
+    color:gray;
+}
+
+.bt_prev {
+    margin-right: 10px;
+    padding-bottom: 2px;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.bt_prev:hover {
+    color: gray;
+}
+
+.bt_next {
+    margin-left: 10px;
+    padding-bottom: 2px;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.bt_next:hover {
+    color:gray;
 }

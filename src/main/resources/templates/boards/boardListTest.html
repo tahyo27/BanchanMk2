@@ -38,10 +38,13 @@
     </div>
     <div class="board_page">
       <!-- 이전 페이지 링크 -->
-      <a th:if="${paging.startPage != 1}"
-         th:href="@{/boards/test(pageNum=${paging.startPage - 1})}" class="bt prev">&lt;</a>
+      <div>
+        <a th:if="${paging.startPage != 1}"
+           th:href="@{/boards/test(pageNum=${paging.startPage - 1})}"
+           class="bt_prev"><</a>
+      </div>
       <!-- 페이지 번호 순환 -->
-      <div class="page-numbers">
+      <div class="page_numbers">
         <div th:each="p : ${#numbers.sequence(paging.startPage, paging.endPage)}">
           <a th:href="@{/boards/test(pageNum=${p})}" class="page-link">
             <span th:text="${p}"></span>
@@ -49,9 +52,11 @@
         </div>
       </div>
       <!-- 다음 페이지 링크 -->
+      <div>
       <a th:if="${paging.endPage != paging.lastPage}"
          th:href="@{/boards/test(pageNum=${paging.endPage + 1})}"
-         class="bt next">&gt;</a>
+         class="bt_next">&gt;</a>
+      </div>
     </div>
 
     <div class="bt_wrap">
