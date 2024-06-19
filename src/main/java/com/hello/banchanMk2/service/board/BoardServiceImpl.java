@@ -1,5 +1,6 @@
 package com.hello.banchanMk2.service.board;
 
+import com.hello.banchanMk2.common.Paging;
 import com.hello.banchanMk2.domain.board.Board;
 import com.hello.banchanMk2.repository.board.BoardRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -27,8 +28,8 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public List<Board> findBoards() {
-        return boardRepository.findAll();
+    public List<Board> findBoards(Paging paging) {
+        return boardRepository.findAll(paging);
     }
 
     @Override
@@ -42,17 +43,8 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public List<Board> pagedAll(int pageNumber, int pageSize) {
-        log.info("pageAll pageNumber : " + pageNumber + " pageSize : " + pageSize);
-        Sort sort = Sort.by(Sort.Direction.DESC, "boardNum");
-        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
-        log.info(pageable.toString());
-        return boardRepository.pagedFindAll(pageable);
-    }
-
-    @Override
-    public Page<Board> pageTestAll(Pageable pageable) {
-        return boardRepository.pageTest(pageable);
+    public Integer countBoard() {
+        return boardRepository.boardCount();
     }
 
 

@@ -1,5 +1,6 @@
 package com.hello.banchanMk2.repository.board;
 
+import com.hello.banchanMk2.common.Paging;
 import com.hello.banchanMk2.domain.board.Board;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -29,26 +30,19 @@ public class JpaBoardRepository implements BoardRepository {
     }
 
     @Override
-    public List<Board> findAll() {
-        List<Board> board = em.createQuery("SELECT b from Board b", Board.class).getResultList();
-        return board;
+    public List<Board> findAll(Paging paging) {
+        String jpql = "select b from Board b order by b.boardNum desc";
+
+        return  em.createQuery(jpql, Board.class)
+                .setFirstResult(paging.getOffset())
+                .setMaxResults(paging.getPageListSize())
+                .getResultList();
     }
 
     @Override
     public Optional<Board> findByBoardNum(Integer num) {
         Board board = em.find(Board.class, num);
         return Optional.ofNullable(board);
-    }
-
-    @Override
-    public List<Board> pagedFindAll(Pageable pageable) {
-        log.info("pagedFindAll" + pageable.toString());
-        String jpql = "select b from Board b order by boardNum desc";
-        log.info("pageable.getoffset" + pageable.getOffset());
-        return em.createQuery(jpql, Board.class)
-                .setFirstResult((int) pageable.getOffset())
-                .setMaxResults(pageable.getPageSize())
-                .getResultList();
     }
 
     @Override
@@ -64,19 +58,9 @@ public class JpaBoardRepository implements BoardRepository {
     }
 
     @Override
-    public Page<Board> pageTest(Pageable pageable) {
-
-        String jpql = "select b from Board b order by b.boardNum desc";
-        List<Board> boards = em.createQuery(jpql, Board.class)
-                .setFirstResult((int) pageable.getOffset())
-                .setMaxResults(pageable.getPageSize())
-                .getResultList();
-
-        // 전체 레코드 수 조회
+    public Integer boardCount() {
         String countJpql = "select count(b) from Board b";
-        Long total = em.createQuery(countJpql, Long.class).getSingleResult();
-
-        return new PageImpl<>(boards, pageable, total);
+        return em.createQuery(countJpql, Long.class).getSingleResult().intValue();
     }
 
 }
